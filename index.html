@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista</title>
+</head>
+<body>
+    <header><h1>Lista de Contatos</h1></header>
+    <div id="add_contato">
+        <input type="text" placeholder="Nome" name="nome" id="nome">
+        <input type="text" placeholder="Endereço" name="end" id="end">
+        <input type="tel" placeholder="Telefone" name="telefone" id="telefone">
+        <input type="date" name="niver" id="niver"> 
+        <input type="button" name="add" id="add" value="Adicionar na lista" onclick="add_lista()">
+        <input type="button" name="listar" id="listar" value="Exibe lista no console" onclick="listar()">
+    </div>
+    
+    <nav>
+        <ul id="lista_principal">
+            <li><a href="">Pessoa 1</a></li>
+            <li><a href="">Pessoa 2</a></li>
+            <li><a href="">Pessoa 3</a></li>
+        </ul>
+    </nav>
+
+    <script>
+       var contatos = []
+       var lista_nomes = []
+        function add_lista(){
+            var n = document.getElementById('nome').value
+            var end = document.getElementById('end').value
+            var tel = document.getElementById('telefone').value
+            var niver = document.getElementById('niver').value
+            
+            const  novo_cadastro = {nome:`${n}`, end:`${end}`, tel:`${tel}`, niver:`${niver}`}
+            
+                 alert('Novo cadastro de nome: ' + novo_cadastro.nome)
+                if (contatos.length == 0) {
+                    alert('Esta vazio')
+                    contatos.push(novo_cadastro)
+                }else{
+                    alert(novo_cadastro.nome)
+                    var i = 0
+                    while ( i < contatos.length) {
+                        if (String(contatos[i].nome) == novo_cadastro.nome) {
+                         alert('Nome já cadastrado')
+                         i = contatos.length
+                     } else {
+                         contatos.push(novo_cadastro)
+                         alert('O nome ' + novo_cadastro.nome +' foi cadastrado' )
+                         i = contatos.length
+                     }
+                    }    
+                    i = 0
+                    for (let cont = 0; cont < contatos.length; cont++) {
+                        console.log(contatos[cont]) ;
+                        
+                    }        
+                }
+                
+                    
+         }
+             
+
+        
+        
+
+        
+    </script>
+</body>
+</html>

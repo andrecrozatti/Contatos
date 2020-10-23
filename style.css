@@ -1,0 +1,9 @@
+body{
+    width: 1000px;
+    margin: 0 auto;
+    background-color: rgb(204, 204, 204);
+}
+
+header{
+    text-align: center;
+}
